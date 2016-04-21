@@ -2200,7 +2200,7 @@ FskErr KprSocketReaderReadDataFrom(KprSocketReader self, void *buffer, UInt32 *s
 	return kFskErrNone;
 }
 
-FskErr KprSocketReaderReadBytes(KprSocketReader self, void *buffer, size_t targetSize)
+FskErr KprSocketReaderReadBytes(KprSocketReader self, void *buffer, UInt32 targetSize)
 {
 	FskErr err = kFskErrNone;
 	UInt8 *p;
@@ -2290,7 +2290,7 @@ bail:
 	return err;
 }
 
-FskErr KprSocketReaderUnreadBytes(KprSocketReader self, void *buffer, size_t length)
+FskErr KprSocketReaderUnreadBytes(KprSocketReader self, void *buffer, UInt32 length)
 {
 	FskErr err;
 

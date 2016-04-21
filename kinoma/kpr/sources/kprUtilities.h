@@ -259,9 +259,9 @@ FskAPI(FskErr) KprSocketReaderDispose(KprSocketReader reader);
 FskAPI(void) KprSocketReaderSetState(KprSocketReader self, int state);
 FskAPI(void) KprSocketReaderResetRead(KprSocketReader self);
 
-FskAPI(FskErr) KprSocketReaderReadBytes(KprSocketReader self, void *buffer, size_t targetSize);
+FskAPI(FskErr) KprSocketReaderReadBytes(KprSocketReader self, void *buffer, UInt32 targetSize);
 FskAPI(FskErr) KprSocketReaderReadHTTPHeaders(KprSocketReader self, FskHeaders *headers);
-FskAPI(FskErr) KprSocketReaderUnreadBytes(KprSocketReader self, void *buffer, size_t targetSize);
+FskAPI(FskErr) KprSocketReaderUnreadBytes(KprSocketReader self, void *buffer, UInt32 targetSize);
 
 FskAPI(FskErr) KprSocketReaderReadDataFrom(KprSocketReader self, void *buffer, UInt32 *size, UInt32 *remoteIP, UInt16 *remotePort);
 
