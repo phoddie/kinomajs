@@ -911,8 +911,8 @@ bail:
 
 char *FskStrStrCaseInsensitive(const char *haystack, const char *needle)
 {
-	int nlen = strlen(needle);
-	int hlen = strlen(haystack) - nlen + 1;
+	int nlen = FskStrLen(needle);
+	int hlen = FskStrLen(haystack) - nlen + 1;
 	int i;
 
 	for (i = 0; i < hlen; i++) {
