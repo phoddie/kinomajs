@@ -176,7 +176,7 @@ extern void mainExtensionTerminate(void);
 
 static NSUInteger gSupportedInterfaceOrientations = 0;
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     if (gSupportedInterfaceOrientations == 0)
     {
