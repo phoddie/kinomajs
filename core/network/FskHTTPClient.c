@@ -997,7 +997,7 @@ FskErr FskHTTPClientRequestNew(FskHTTPClientRequest *reqOut, char *url)
 	err = FskMemPtrNewClear(sizeof(FskHTTPClientRequestRecord), &req);
     BAIL_IF_ERR(err);
 
-	FskInstrumentedItemNew(req, NULL, &gFskHTTPClientRequestTypeInstrumentation);
+	FskInstrumentedItemNew(req, FskStrDoCopy_Untracked(url), &gFskHTTPClientRequestTypeInstrumentation);
 
     BAIL_IF_NULL(url, err, kFskErrInvalidParameter);
 
@@ -1039,6 +1039,7 @@ FskErr sFskHTTPClientRequestDispose(FskHTTPClientRequest request)
 	if (request->userBuffer == false)
 		FskMemPtrDispose(request->buffer);
 
+	FskMemPtrDispose_Untracked((void *)FskInstrumentedItemGetName(request)), FskInstrumentedItemSetName(request, NULL);
 	FskInstrumentedItemDispose(request);
 
 	FskStrParsedUrlDispose(request->parsedUrl);
