@@ -1039,8 +1039,10 @@ FskErr sFskHTTPClientRequestDispose(FskHTTPClientRequest request)
 	if (request->userBuffer == false)
 		FskMemPtrDispose(request->buffer);
 
+#if SUPPORT_INSTRUMENTATION
 	FskMemPtrDispose_Untracked((void *)FskInstrumentedItemGetName(request)), FskInstrumentedItemSetName(request, NULL);
 	FskInstrumentedItemDispose(request);
+#endif
 
 	FskStrParsedUrlDispose(request->parsedUrl);
 	if (request->methodNeedsDispose)
