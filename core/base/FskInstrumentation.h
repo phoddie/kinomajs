@@ -294,6 +294,7 @@ FskAPI(FskInstrumentationSimpleClient) FskInstrumentationSimpleClientGetTypeList
 #define FskInstrumentedItemNew(obj, name, dispatch)
 #define FskInstrumentedItemDispose(obj)
 #define FskInstrumentedItemSetOwner(obj, id)
+#define FskInstrumentedItemGetName(obj) (NULL)
 #define FskInstrumentedItemSetName(obj, name)
 #define FskInstrumentationItemToObject(obj) (NULL)
 #define FskInstrumentedItemHasListeners(obj) (false)
