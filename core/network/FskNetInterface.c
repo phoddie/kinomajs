@@ -448,7 +448,6 @@ static FskErr sFskNetInterfaceEnumerate(FskNetInterfaceRecord **interfaceList)
 	FskErr	err = kFskErrNone;
 	FskNetInterfaceRecord *nir;
 	int fd;
-	struct ifreq  ifr;
 	struct sockaddr_in *sa;
 #if TARGET_OS_MAC	// BSD
 	struct ifreq ibuf[32];
@@ -630,6 +629,7 @@ skip:
 #endif /* !TARGET_OS_ANDROID */
 
 #elif TARGET_OS_MAC && !TARGET_OS_IPHONE
+	struct ifreq  ifr;
 	struct ifreq *ifrp, *ifend;
 	unsigned int r;
 	struct ifconf ifc;
